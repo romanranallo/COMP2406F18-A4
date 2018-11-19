@@ -2,14 +2,19 @@
 <html lang = "en-US">
 	<head>
 		<meta charset = "UTF-8">
-		<title>externalStyle.html</title>
+		<title>Recipes</title>
+		<script src="jquery-1.11.3.js"></script>
 		<style> 
         body {
            background: #dddddd;
         }	
 		 
-		.photoArea {
-			height: 300px;
+		#photoArea {
+			
+		}
+		
+		.photo {
+			height: auto;
 			width: 300px;
 			float: left;
 		}
@@ -22,9 +27,14 @@
 		</style>
 	</head>
 	<body>
-		<form id="queryForm" "method="post">
-		Ingredients: <input name="city">
+		<form id="queryForm" method="post" onsubmit=">
+		Ingredients: <input name="ingredients">
 		<input type="submit" value="Get Recipes">
 		</form>	
+		
+		<div id="photoArea">
+		</div>
+	
+	<script src='client.js'></script>
 	</body>
 </html>

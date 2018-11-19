@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/romanranallo/COMP2406F18-A4#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "request": "^2.88.0"
   }
 }

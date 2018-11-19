@@ -1,0 +1,33 @@
+
+		body {
+		background: #dddddd;
+        }	
+		 
+		#photoArea {
+			margin: auto;
+		}
+		
+		div.photo {
+			height: 400px;
+			width: 400px;
+			float: left;
+			margin: 20px;
+			border: 2px black;
+		}
+		
+		img.photo {
+			max-height:400px;
+			max-width: 400px;
+			padding: 3px;
+		}
+		
+		p.photo {
+			text-align: center;
+		}
+		
+		#queryForm {
+			text-align: center;
+			margin-top: 25px;
+		}
+	
+	
