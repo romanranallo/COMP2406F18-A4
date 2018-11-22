@@ -45,7 +45,7 @@ $(document).ready(function() {
   $(document).keyup(handleKeyUp)
   if (url != '') {
 	  $('#ingredientField').val(url.substring(url.indexOf('=') + 1))
-	  handleSubmit()
   }
+  handleSubmit()
 })
 
