@@ -20,6 +20,7 @@ const HOST = "https://www.food2fork.com/api/search"
 
 function sendResponse(body, response) {
 	
+	console.log('send response')
 	response.send(body)
 }
 
@@ -44,15 +45,7 @@ function postResponse(request, response) {
 }
 
 function getResponse(request, response) {
-	let ingredients = request.query.ingredients
-	console.log("GET RESPONSE")
-	if(ingredients) {
-		console.log('found ings')
-		sendGetRequest(ingredients, response)
-	}
-	else {
-		response.sendFile(path.join(__dirname + ROOT_DIR +"/index.html"))
-	}
+	response.sendFile(path.join(__dirname + ROOT_DIR +"/index.html"))
 	
 }
 

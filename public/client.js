@@ -40,7 +40,12 @@ function handleSubmit() {
 
 $(document).ready(function() {
 
+  let url = window.location.search.substring(1)
+  console.log("url: ", url)
   $(document).keyup(handleKeyUp)
-
+  if (url != '') {
+	  $('#ingredientField').val(url.substring(url.indexOf('=') + 1))
+	  handleSubmit()
+  }
 })
 
