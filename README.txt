@@ -1,7 +1,8 @@
 # COMP2406F18-A4
 
 Roman Ranallo: 101036148, romanranallo@cmail.carleton.ca
-Richard St. John:
+Richard St. John: 100281178
+richardstjohn@cmail.carleton.ca
 
 Tested on Google Chrome with Node 8.11.4 installed
 
