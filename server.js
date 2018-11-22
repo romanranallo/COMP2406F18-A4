@@ -15,7 +15,8 @@ const app = express()
 const PORT = process.env.PORT || 3000
 const ROOT_DIR = "/public"
 const path = require("path")
-const API_KEY = "3838769ed4fcbfcf91eb9306280948db"
+//const API_KEY = "3838769ed4fcbfcf91eb9306280948db"
+const API_KEY = "dba03e4bd523718818f962d8fbb1d8c4"
 const HOST = "https://www.food2fork.com/api/search"
 
 function sendResponse(body, response) {
