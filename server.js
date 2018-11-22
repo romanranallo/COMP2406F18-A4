@@ -19,27 +19,8 @@ const API_KEY = "3838769ed4fcbfcf91eb9306280948db"
 const HOST = "https://www.food2fork.com/api/search"
 
 function sendResponse(body, response) {
-	body = JSON.parse(body)
 	
-	let page = `<html lang = "en-US"><head><meta charset = "UTF-8">
-		<link rel="stylesheet" type="text/css" href="/public/styles/style.css">
-		<title>Recipes</title> 
-		</head><body>
-		<form id="queryForm" method="post">
-		Ingredients: <input name="ingredients">
-		<input type="submit" value="Get Recipes">
-		</form><div id="photoArea">`
-	if (body !== null){
-		for(let i=0; i<body.count; i++) {
-			page += `<div class="photo">
-					<a href="${body.recipes[i].f2f_url}" target="_blank">
-					<img class="photo" src="${body.recipes[i].image_url}"></a>
-					<p class="photo">${body.recipes[i].title}</div>`
-		}
-	}
-	page +=	`<p></p></div></body></html>`
-	
-	response.send(page)
+	response.send(body)
 }
 
 function sendGetRequest(ingredients, res) {
@@ -55,27 +36,30 @@ function sendGetRequest(ingredients, res) {
 }
 
 function postResponse(request, response) {
+
+	console.log('request: ', request.body)
 	let ingredients = request.body.ingredients
 	console.log(ingredients)
 	sendGetRequest(ingredients, response)
 }
 
 function getResponse(request, response) {
-	//Add code to get Json and then inject html div elements with class="photos" into id="photoArea
 	let ingredients = request.query.ingredients
-	console.log(ingredients)
+	console.log("GET RESPONSE")
 	if(ingredients) {
+		console.log('found ings')
 		sendGetRequest(ingredients, response)
 	}
 	else {
-		sendResponse(null, response)
+		response.sendFile(path.join(__dirname + ROOT_DIR +"/index.html"))
 	}
-	//response.sendFile(path.join(__dirname + ROOT_DIR +"/index.html"))
+	
 }
 
 app.use(logger("dev"))
 app.use(bodyParser.urlencoded({}))
 app.use(bodyParser.json())
+
 
 app.get("/recipes.html", getResponse)
 app.get("/recipes", getResponse)
@@ -85,12 +69,16 @@ app.get("", getResponse)
 app.get("/public/styles/style.css", function(req, res) {
 	res.sendFile(__dirname + ROOT_DIR + "/styles/style.css")
 	})
+	
+	
+app.use(express.static(__dirname + '/public'));
 app.post("/recipes", postResponse)
 app.post("/recipes.html", postResponse)
 app.post("/recipes", postResponse)
 app.post("/index.html", postResponse)
 app.post("/", postResponse)
 app.post("", postResponse)
+app.post("/handle", postResponse)
 
 app.listen(PORT, err => {
   if (err) console.log(err)

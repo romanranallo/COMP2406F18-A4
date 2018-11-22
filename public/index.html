@@ -2,6 +2,7 @@
 <html lang = "en-US">
 	<head>
 		<meta charset = "UTF-8">
+		<link rel="stylesheet" type="text/css" href="/public/styles/style.css">
 		<title>Recipes</title>
 		<script src="jquery-1.11.3.js"></script>
 		<style> 
@@ -27,11 +28,12 @@
 		</style>
 	</head>
 	<body>
-		<form id="queryForm" method="post" onsubmit=">
-		Ingredients: <input name="ingredients">
-		<input type="submit" value="Get Recipes">
-		</form>	
-		
+		<div id="form-area" align="center">
+			Ingredients: 
+			<input type = "text"  id="ingredientField" name = "ingredientField"  value="" size = "40" />
+			<input type="button" value="Submit" onClick="handleSubmit()" id="submit-button">	
+		</div>
+
 		<div id="photoArea">
 		</div>
 	
